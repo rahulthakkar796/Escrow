@@ -1,66 +1,55 @@
-## Foundry
+# Escrow Smart Contract Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains a smart contract for an Escrow system. The contract facilitates secure transactions between buyers and sellers with the inclusion of an arbitrator to resolve any disputes. The project includes comprehensive scripts for deployment and configuration, as well as unit and integration tests.
 
-Foundry consists of:
+## Prerequisites
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- [Foundry](https://book.getfoundry.sh/getting-started/installation.html)
+- [Node.js](https://nodejs.org/en/download/) (optional, for managing JavaScript dependencies)
+- [npm](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/) (optional, for managing JavaScript dependencies)
 
-## Documentation
+## Getting Started
 
-https://book.getfoundry.sh/
+### 1. Clone the Repository
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```bash
+git clone https://github.com/rahulthakkar796/escrow-contracts.git
+cd escrow-contracts
 ```
 
-### Test
+### 2. Install Foundry
+Follow the instructions in the Foundry Book to install Foundry.
 
-```shell
-$ forge test
+### Compilation
+Compile the smart contracts using Foundry:
+
+```bash
+forge build
 ```
 
-### Format
+### Running Tests
+#### Run the tests to ensure the contracts work as expected.
 
-```shell
-$ forge fmt
+### Unit Tests
+
+```bash
+forge test
 ```
 
-### Gas Snapshots
+### Integration Tests
+#### Integration tests are included with the unit tests. They validate that the deployment and configuration scripts work correctly and that the contracts interact as expected.
 
-```shell
-$ forge snapshot
+### Coverage Report
+#### Generate a coverage report:
+
+```bash
+forge coverage --report lcov
+genhtml -o report --branch-coverage lcov.info 
 ```
 
-### Anvil
+#### Open the index.html file in the report directory in your web browser to view the coverage report.
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### Project Structure
+* src/: Main smart contracts.
+* script/: Deployment and configuration scripts.
+* test/: Unit and integration tests.
